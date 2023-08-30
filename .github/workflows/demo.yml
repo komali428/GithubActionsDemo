@@ -14,7 +14,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm help
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
 
   Run-PSScriptAnalyzer-on-Windows:
     name: Run PSScriptAnalyzer on Windows
