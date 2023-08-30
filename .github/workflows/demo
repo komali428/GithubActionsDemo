@@ -1,4 +1,4 @@
-name: Run commands on different operating systems
+name: Run on different operating systems
 on:
   push:
     branches: [ main ]
