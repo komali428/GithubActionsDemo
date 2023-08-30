@@ -30,3 +30,7 @@ jobs:
         shell: pwsh
         run: |
           Get-ScriptAnalyzerRule
+
+  Run-PSScript-on-Windows:
+    name: Run PSScript on Windows
+    runs-on: windows-latest
