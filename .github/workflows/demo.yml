@@ -1,42 +1,11 @@
-name: Run commands on different operating systems
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  Run-npm-on-Ubuntu:
-    name: Run npm on Ubuntu
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm help
-
-  Run-PSScriptAnalyzer-on-Windows:
-    name: Run PSScriptAnalyzer on Windows
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install PSScriptAnalyzer module
-        shell: pwsh
-        run: |
-          Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module PSScriptAnalyzer -ErrorAction Stop
-      - name: Get list of rules
-        shell: pwsh
-        run: |
-          Get-ScriptAnalyzerRule
-  
-  Run-PSVersion-on-Windows:
-    name: Run PSVersion on Windows
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run PS version
-        shell: pwsh
-        run: |
-          $PSVersionTable.PSVersion
+ - name: Create Artifact Folder
+   run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
+   shell: powershell
+ - name: Copy Files
+   run: Copy 'Files/' '${{ github.workspace }}/Artifacts/Scripts'
+   shell: powershell
+ - name: Publish Artifact
+   uses: actions/upload-artifact@v2
+   with:
+     path: ${{ github.workspace }}/Artifacts
+     name: ${{ github.run_number }}
