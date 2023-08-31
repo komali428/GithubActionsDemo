@@ -6,14 +6,11 @@ jobs:
     steps:
     - name: Checkout 🛎️
       uses: actions/checkout@v2
-
-    - name: Make copy of sample.txt 📚
-      run: |
-        cp ${GITHUB_WORKSPACE}/Files/sample.txt path/to/artifact
+      
     - name: Create a artifact
       uses: actions/upload-artifact@v3
       with:
             name: my-artifact
-            path: path/to/artifact/files/samples.txt
+            path: ${GITHUB_WORKSPACE}/files/samples.txt
         
 
