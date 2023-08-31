@@ -3,15 +3,13 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
-    
+    branches: [ main     
 jobs:
-  Run-npm-on-Ubuntu:
-    name: Run npm on Ubuntu
+  Run-arifact-on-Ubuntu:
+    name: Run arifact on Ubuntu
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
       - run: mkdir -p path/to/artifact
       - run: echo hello > path/to/artifact/files/samples.txt
       - uses: actions/upload-artifact@v3
