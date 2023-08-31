@@ -7,8 +7,8 @@ jobs:
     - name: Checkout 🛎️
       uses: actions/checkout@v2
 
-    - name: Make copy of samples.txt 📚
+    - name: Make copy of sample.txt 📚
       run: |
-        chmod u+x "${GITHUB_WORKSPACE}/files/samples.txt"
-        bash "${GITHUB_WORKSPACE}/files/samples.txt"
+        chmod u+x "${GITHUB_WORKSPACE}/files/sample.txt"
+        bash "${GITHUB_WORKSPACE}/files/sample.txt"
 
