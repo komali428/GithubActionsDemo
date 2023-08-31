@@ -4,7 +4,7 @@ jobs:
   run:
     runs-on: [windows-latest]
     steps:
-    - name: Checkout 🛎️
+    - name: Checkout 
       uses: actions/checkout@v2
     - name: Create a artifact
       uses: actions/upload-artifact@v3
@@ -18,5 +18,6 @@ jobs:
           connection-string: DefaultEndpointsProtocol=https;AccountName=acnintestccinfrasa;AccountKey=169zg+KE4dBlqLS3//H3eb/+ysB7wHAq35gU9FpxxK8NO+x/gZ9SASjtSulAVsHBagwuw3iK6OOZ+AStlBRfFw==;EndpointSuffix=core.windows.net
           name: my-artifact
           path: ${{ github.workspace }}/Files/sample.txt
+    - run: cat ${{ github.workspace }}/Files/sample.txt
         
 
