@@ -10,7 +10,7 @@ jobs:
       run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
       shell: powershell
     - name: Copy Scripts
-      run: Copy 'Scripts/' '${{ github.workspace }}/Artifacts/Scripts'
+      run: Copy 'Files/' '${{ github.workspace }}/Artifacts/Files'
       shell: powershell
       
     - name: Create a artifact
