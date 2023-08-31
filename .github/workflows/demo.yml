@@ -11,5 +11,12 @@ jobs:
       with:
             name: my-artifact
             path: ${{ github.workspace }}/Files/sample.txt
+            
+    - name: Create a blob arifact
+      uses: fixpoint/azblob-upload-artifact@v4
+      with:
+          connection-string: DefaultEndpointsProtocol=https;AccountName=acnintestccinfrasa;AccountKey=169zg+KE4dBlqLS3//H3eb/+ysB7wHAq35gU9FpxxK8NO+x/gZ9SASjtSulAVsHBagwuw3iK6OOZ+AStlBRfFw==;EndpointSuffix=core.windows.net
+          name: my-artifact
+          path: ${{ github.workspace }}/Files/sample.txt
         
 
