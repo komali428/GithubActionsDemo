@@ -7,10 +7,10 @@ jobs:
     - name: Checkout 🛎️
       uses: actions/checkout@v2
     - name: Create Artifact Folder
-      run: New-Item -Path '${{ github.workspace }}' -Name "Files" -ItemType "directory"
+      run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
       shell: powershell
     - name: Copy Scripts
-      run: Copy 'Files/' '${{ github.workspace }}/Files/sample.txt'
+      run: Copy 'Scripts/' '${{ github.workspace }}/Artifacts/Scripts'
       shell: powershell
       
     - name: Create a artifact
