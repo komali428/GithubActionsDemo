@@ -10,13 +10,13 @@ jobs:
       run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
       shell: powershell
     - name: Copy Scripts
-      run: Copy 'Files/' '${{ github.workspace }}/Artifacts/Files'
+      run: Copy 'Files/' '${{ github.workspace }}/Files'
       shell: powershell
       
     - name: Create a artifact
       uses: actions/upload-artifact@v3
       with:
             name: my-artifact
-            path: ${{ github.workspace }}/Artifacts/Files/sample.txt
+            path: ${{ github.workspace }}/Files/sample.txt
         
 
