@@ -9,6 +9,6 @@ jobs:
 
     - name: Make copy of sample.txt 📚
       run: |
-        chmod u+x "${GITHUB_WORKSPACE}/Files/sample.txt"
-        bash "${GITHUB_WORKSPACE}/Files/sample.txt"
+        cp "${GITHUB_WORKSPACE}/Files/sample.txt"
+        
 
