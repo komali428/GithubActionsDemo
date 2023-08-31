@@ -1,18 +1,14 @@
-name: Run commands on different operating systems
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+name: Copy my_file.json to tests subdirectory
+on: [push, pull_request, workflow_dispatch]
 jobs:
-  Run-arifact-on-Ubuntu:
-    name: Run arifact on Ubuntu
-    runs-on: ubuntu-latest
+  run:
+    runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
-      - run: mkdir -p path/to/artifact
-      - run: echo hello > path/to/artifact/files/samples.txt
-      - uses: actions/upload-artifact@v3
-          with:
-            name: my-artifact
-            path: path/to/artifact/files/samples.txt
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2
+
+    - name: Make copy of samples.txt 📚
+      run: |
+        chmod u+x "${GITHUB_WORKSPACE}/files/samples.txt"
+        bash "${GITHUB_WORKSPACE}/files/samples.txt"
+
