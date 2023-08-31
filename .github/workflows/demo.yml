@@ -5,14 +5,16 @@ on:
   pull_request:
     branches: [ main ]
     
- - name: Create Artifact Folder
-   run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
-   shell: powershell
- - name: Copy Files
-   run: Copy 'Files/' '${{ github.workspace }}/Artifacts/Scripts'
-   shell: powershell
- - name: Publish Artifact
-   uses: actions/upload-artifact@v2
-   with:
-     path: ${{ github.workspace }}/Artifacts
-     name: ${{ github.run_number }}
+jobs:
+  Run-npm-on-Ubuntu:
+    name: Run npm on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: mkdir -p path/to/artifact
+      - run: echo hello > path/to/artifact/files/samples.txt
+      - uses: actions/upload-artifact@v3
+          with:
+            name: my-artifact
+            path: path/to/artifact/files/samples.txt
