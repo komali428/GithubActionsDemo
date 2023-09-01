@@ -27,5 +27,5 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-         az storage blob upload --account-name acnintestccinfrasa --container-name github-action-artifacts --name sample.txt --file ${{ github.workspace }}/Files/sample.txt --auth-mode login
+         az storage blob upload --account-name acnintestccinfrasa --container-name github-action-artifacts --name sample.txt --file ${{ github.workspace }}/Files/sample.txt --auth-mode key
         
