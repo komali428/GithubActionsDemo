@@ -27,5 +27,5 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name "acnintestccinfrasa" --auth-mode login -d '${{ github.workspace }}/Files/sample.txt' -s .
+         az storage blob upload --account-name acnintestccinfrasa --container-name github-action-artifacts --name myFile.txt --file myFile.txt --auth-mode login
         
