@@ -20,7 +20,7 @@ jobs:
           path: ${{ github.workspace }}/Files/sample.txt
     - run: cat ${{ github.workspace }}/Files/sample.txt
     - name: Azure Login
-    - uses: azure/login@v1
+      uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
         
