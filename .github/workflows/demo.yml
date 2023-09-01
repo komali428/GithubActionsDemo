@@ -2,7 +2,7 @@ name: samples.txt to storage account
 on: [push, pull_request, workflow_dispatch]
 jobs:
   run:
-    runs-on: [windows-latest]
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout 
       uses: actions/checkout@v2
