@@ -19,13 +19,3 @@ jobs:
           name: my-artifact
           path: ${{ github.workspace }}/Files/sample.txt
     - run: cat ${{ github.workspace }}/Files/sample.txt
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Upload to blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-         az storage blob upload --account-name acnintestccinfrasa --container-name github-action-artifacts --name ${{ github.workspace }}/Files/sample.txt --auth-mode key
-        
